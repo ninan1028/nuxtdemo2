@@ -65,11 +65,52 @@ module.exports =
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ function(module, exports) {
+
+module.exports = require("koa-router");
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router_test__ = __webpack_require__(10);
+var Router = __webpack_require__(0);
+
+var router = new Router();
+
+
+
+router.get('/info', function (ctx) {
+   ctx.body = 1;
+});
+
+router.use(__WEBPACK_IMPORTED_MODULE_0__router_test__["a" /* default */].routes(), __WEBPACK_IMPORTED_MODULE_0__router_test__["a" /* default */].allowedMethods());
+
+/* harmony default export */ exports["a"] = router;
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+// 全局的配置数据
+
+var apiPath = "";
+
+console.log(process.env);
+console.log(process.env.VUE_ENV);
+console.log("development"); // development
+
+
+global.apiPath = '';
+
+/***/ },
+/* 3 */
 /***/ function(module, exports) {
 
 module.exports = {
@@ -79,8 +120,9 @@ module.exports = {
   head: {
     title: 'starter',
     meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1' }, { hid: 'description', name: 'description', content: 'Nuxt.js project' }],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }, { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto' }]
   },
+  srcDir: 'client/',
   /*
   ** Global CSS
   */
@@ -105,7 +147,7 @@ module.exports = {
     /*
      ** Run ESLINT on save
      */
-    vendor: ['axios', './plugins/element-ui.js'],
+    vendor: ['axios', './client/plugins/element-ui.js'],
     extend: function extend(config, ctx) {
       if (ctx.isClient) {
         // config.module.rules.push({
@@ -120,50 +162,113 @@ module.exports = {
 };
 
 /***/ },
-/* 1 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(4);
+module.exports = __webpack_require__(11);
 
 
 /***/ },
-/* 2 */
+/* 5 */
 /***/ function(module, exports) {
 
 module.exports = require("koa");
 
 /***/ },
-/* 3 */
+/* 6 */
+/***/ function(module, exports) {
+
+module.exports = require("koa-bodyparser");
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+module.exports = require("koa2-cors");
+
+/***/ },
+/* 8 */
 /***/ function(module, exports) {
 
 module.exports = require("nuxt");
 
 /***/ },
-/* 4 */
+/* 9 */
+/***/ function(module, exports) {
+
+//controll层
+
+
+// 需要引入 日志 文件  commonPost 
+
+
+/**
+ * 测试controll层
+ * @param {*} ctx 
+ * @param {*} next 
+ */
+var test = function test(ctx, next) {
+
+  var param = ctx.request.query; // get 参数
+  var d = 1;
+  ctx.body = { data: param };
+};
+
+module.exports = {
+  test: test
+};
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_koa_router__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_koa_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_koa_router__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__controller_test_test__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__controller_test_test___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__controller_test_test__);
+
+
+
+
+console.log(__WEBPACK_IMPORTED_MODULE_1__controller_test_test___default.a);
+var router = new __WEBPACK_IMPORTED_MODULE_0_koa_router___default.a({
+    prefix: '/test'
+});
+
+router.get('/info', __WEBPACK_IMPORTED_MODULE_1__controller_test_test___default.a.test);
+
+/* harmony default export */ exports["a"] = router;
+
+/***/ },
+/* 11 */
 /***/ function(module, exports) {
 
 module.exports = require("regenerator-runtime");
 
 /***/ },
-/* 5 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Users_zhangjiantong_mygithub_nuxt_nuxtdemo_node_modules_babel_runtime_regenerator__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Users_zhangjiantong_mygithub_nuxt_nuxtdemo_node_modules_babel_runtime_regenerator__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Users_zhangjiantong_mygithub_nuxt_nuxtdemo_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Users_zhangjiantong_mygithub_nuxt_nuxtdemo_node_modules_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_koa__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_koa__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_koa___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_koa__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_nuxt__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_nuxt__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_nuxt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_nuxt__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_router_router_js__ = __webpack_require__(1);
 
 
 var start = function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__Users_zhangjiantong_mygithub_nuxt_nuxtdemo_node_modules_babel_runtime_regenerator___default.a.mark(function _callee() {
+  var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__Users_zhangjiantong_mygithub_nuxt_nuxtdemo_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2() {
+    var _this = this;
+
     var app, host, port, config, nuxt, builder;
-    return __WEBPACK_IMPORTED_MODULE_0__Users_zhangjiantong_mygithub_nuxt_nuxtdemo_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+    return __WEBPACK_IMPORTED_MODULE_0__Users_zhangjiantong_mygithub_nuxt_nuxtdemo_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
       while (1) {
-        switch (_context.prev = _context.next) {
+        switch (_context2.prev = _context2.next) {
           case 0:
             app = new __WEBPACK_IMPORTED_MODULE_1_koa___default.a();
             host = process.env.HOST || '127.0.0.1';
@@ -171,7 +276,7 @@ var start = function () {
 
             // Import and Set Nuxt.js options
 
-            config = __webpack_require__(0);
+            config = __webpack_require__(3);
 
             config.dev = !(app.env === 'production');
 
@@ -181,15 +286,48 @@ var start = function () {
             // Build in development
 
             if (!config.dev) {
-              _context.next = 10;
+              _context2.next = 10;
               break;
             }
 
             builder = new __WEBPACK_IMPORTED_MODULE_2_nuxt__["Builder"](nuxt);
-            _context.next = 10;
+            _context2.next = 10;
             return builder.build();
 
           case 10:
+
+            app.use(cors());
+            app.use(bodyParser());
+            app.use(__WEBPACK_IMPORTED_MODULE_3__app_router_router_js__["a" /* default */].routes());
+            app.use(__WEBPACK_IMPORTED_MODULE_3__app_router_router_js__["a" /* default */].allowedMethods());
+
+            app.use(function () {
+              var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0__Users_zhangjiantong_mygithub_nuxt_nuxtdemo_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(ctx, next) {
+                var start, ms;
+                return __WEBPACK_IMPORTED_MODULE_0__Users_zhangjiantong_mygithub_nuxt_nuxtdemo_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                  while (1) {
+                    switch (_context.prev = _context.next) {
+                      case 0:
+                        start = new Date();
+                        _context.next = 3;
+                        return next();
+
+                      case 3:
+                        ms = new Date() - start;
+                        // console.log('%s %s - %s', this.method, this.url, ms);
+
+                      case 4:
+                      case 'end':
+                        return _context.stop();
+                    }
+                  }
+                }, _callee, _this);
+              }));
+
+              return function (_x, _x2) {
+                return _ref2.apply(this, arguments);
+              };
+            }());
 
             app.use(function (ctx) {
               ctx.status = 200;
@@ -201,12 +339,12 @@ var start = function () {
             app.listen(port, host);
             console.log('Server listening on ' + host + ':' + port); // eslint-disable-line no-console
 
-          case 13:
+          case 18:
           case 'end':
-            return _context.stop();
+            return _context2.stop();
         }
       }
-    }, _callee, this);
+    }, _callee2, this);
   }));
 
   return function start() {
@@ -218,6 +356,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 
+//路由
+
+var bodyParser = __webpack_require__(6);
+var cors = __webpack_require__(7); //跨域设置
+
+//server端配置 
+__webpack_require__(2);
 
 start();
 

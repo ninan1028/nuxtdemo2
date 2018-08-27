@@ -10,9 +10,11 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto' }
     ]
   },
+  srcDir:'client/',
   /*
   ** Global CSS
   */
@@ -42,7 +44,7 @@ module.exports = {
     /*
      ** Run ESLINT on save
      */
-    vendor:['axios','./plugins/element-ui.js'],
+    vendor:['axios','./client/plugins/element-ui.js'],
     extend (config, ctx) {
       if (ctx.isClient) {
         // config.module.rules.push({
